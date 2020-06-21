@@ -2,7 +2,6 @@ package br.com.antifraude.cartao.monitoramento.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +20,7 @@ public class TransactionController {
 	private ITransactionService service;
 	
 	@ResponseBody
-    @GetMapping(value = "/verification", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/verification")
     @ResponseStatus(value = HttpStatus.OK)
     public TransactionDTO validacao(@RequestParam(value = "code") Long codigo) {
         return service.getTransactionByCodeValidation(codigo);
